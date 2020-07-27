@@ -2,5 +2,5 @@
 
 curl \
     -H "ContentType: appliation/json" \
-    --data '{"source_type": "Tag", "source_name": $git_tag}' \
-    -X POST $docker_host
+    --data '{"source_type": "Tag", "source_name": $1}' \
+    -X POST $2

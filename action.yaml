@@ -1,0 +1,22 @@
+name: 'DockerBuild'
+description: 'Triggers a DockerHub build via an HTTP POST'
+
+inputs:
+    git-tag:
+        description: 'The tag of the release to trigger with'
+        required: true
+        
+    docker-host:
+        description: 'The Docker generated POST endpoint to trigger the build'    
+        required: true
+        
+runs:
+      using: 'docker'
+      image: 'Dockerfile'
+      args:
+        - ${{ inputs.git-tag }}
+        - ${{ inputs.docker-host }}
+        
+branding:
+    icon: 'anchor'  
+    color: 'blue'
